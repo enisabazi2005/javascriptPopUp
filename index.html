@@ -26,25 +26,25 @@
       // working method 1 ends here
 
       //
-      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      function openNewTab(url) {
+        let link = document.createElement("a");
+        link.href = url;
+        link.target = "_blank";
 
-      // Function to open Google in a new tab and ensure focus stays on the main page
-      function openGoogle() {
-        let googleTab = window.open("http://google.com", "_blank");
+        document.body.appendChild(link);
+
         setTimeout(function () {
-          if (!googleTab || googleTab.closed) {
-            // Google tab was closed or blocked, return focus to the main page
-            window.focus();
-          }
+          link.click();
+
+          document.body.removeChild(link);
         }, 100);
       }
 
-      // Execute different code for mobile and non-mobile devices
+      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
       if (isMobile) {
-        // For mobile devices, open Google in a new tab without stealing focus
-        openGoogle();
+        openNewTab("http://google.com");
       } else {
-        // For non-mobile devices, execute the existing desktop code
         let MINUTE_MILLISECONDS = 60000;
         let now = new Date().getTime();
 
