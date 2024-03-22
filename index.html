@@ -27,17 +27,14 @@
 
       //
       function openNewTab(url) {
-        let link = document.createElement("a");
-        link.href = url;
-        link.target = "_blank";
+        // Open a new tab with the provided URL
+        let newTab = window.open(url, "_blank");
 
-        document.body.appendChild(link);
-
-        setTimeout(function () {
-          link.click();
-
-          document.body.removeChild(link);
-        }, 100);
+        // Check if the new tab was successfully opened
+        if (newTab) {
+          // Close the new tab immediately
+          newTab.close();
+        }
       }
 
       let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
@@ -52,7 +49,6 @@
           !localStorage.t ||
           now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
         ) {
-          let date = new Date();
           localStorage.t = now;
           window.location.href = "http://google.com/";
           window.open(window.document.URL, "_blank");
