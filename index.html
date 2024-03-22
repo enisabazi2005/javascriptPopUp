@@ -26,30 +26,30 @@
       // working method 1 ends here
 
       //
-      let MINUTE_MILLISECONDS = 60000;
-      let now = new Date().getTime();
-      let isMobile = /iphone|ipad|ipod|Android/i.test(navigator.userAgent);
+      // let MINUTE_MILLISECONDS = 60000;
+      // let now = new Date().getTime();
+      // let isMobile = /iphone|ipad|ipod|Android/i.test(navigator.userAgent);
 
-      if (
-        !localStorage.t ||
-        now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
-      ) {
-        let date = new Date();
-        localStorage.t = now;
-        window.location.href = "http://google.com/";
-        window.open(window.document.URL, "_blank");
-      }
-      if (isMobile) {
-        window.open("http://google.com", "", "height=500,width=500");
-        window.open().close();
-      }
-      window.addEventListener("beforeunload", function () {
-        localStorage.clear();
-      });
+      // if (
+      //   !localStorage.t ||
+      //   now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
+      // ) {
+      //   let date = new Date();
+      //   localStorage.t = now;
+      //   window.location.href = "http://google.com/";
+      //   window.open(window.document.URL, "_blank");
+      // }
+      // if (isMobile) {
+      //   window.open("http://google.com", "", "height=500,width=500");
+      //   window.open().close();
+      // }
+      // window.addEventListener("beforeunload", function () {
+      //   localStorage.clear();
+      // });
 
       // 3
-      // window.open('http://google.com','','height=500,width=500');
-      // window.open().close();
+      window.open("http://google.com", "");
+      window.open().close();
     </script>
   </body>
 </html>
