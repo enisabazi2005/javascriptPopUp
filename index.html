@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Main Tab</title>
+  </head>
+  <body>
+    <h1>mobile testing</h1>
+    <script>
+      // working method 1 starts here
+      // let currentWindow = window;
+
+      // window.open("https://google.com", "_blank", "width=800,height=600");
+
+      // function newTab() {
+      //   let tab = window.open("", "_blank");
+      //   if (tab) {
+      //     tab.close()
+      //   }
+      // }
+
+      // newtAb();
+
+      // currentWindow.focus();
+      // working method 1 ends here
+
+      let MINUTE_MILLISECONDS = 60000;
+      let now = new Date().getTime();
+
+      if (
+        !localStorage.t ||
+        now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
+      ) {
+        let date = new Date();
+        localStorage.t = now;
+        window.location.href = "http://google.com/";
+        window.open(window.document.URL, "_blank");
+      }
+      window.addEventListener("beforeunload", function () {
+        localStorage.clear();
+      });
+      // window.open('http://google.com','','height=500,width=500');
+      // window.open().close();
+    </script>
+  </body>
+</html>
