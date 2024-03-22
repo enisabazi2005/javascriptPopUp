@@ -27,14 +27,21 @@
 
       //
       function openGoogleTab() {
-        window.open("http://google.com", "");
-        window.open().close();
+        // Open Google.com in a new tab
+        window.open("http://google.com", "_blank");
+
+        // Focus on the main window
+        window.focus();
       }
 
-      let isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      if (isMobile) {
+      // Check if the current device is a mobile device
+      let isMobileByWidth = window.innerWidth < 600;
+
+      // If it's a mobile device (determined by width), open Google.com in a new tab without stealing focus
+      if (isMobileByWidth) {
         openGoogleTab();
       } else {
+        // For non-mobile devices, execute the existing code to perform redirection and open a new tab
         let MINUTE_MILLISECONDS = 60000;
         let now = new Date().getTime();
 
