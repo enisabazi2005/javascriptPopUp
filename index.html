@@ -28,13 +28,10 @@
       //
       function openGoogleTab() {
         // Open Google.com in a new tab
-        let googleTab = window.open("http://google.com", "_blank");
+        window.open("http://google.com", "_blank");
 
-        // Check if the new tab was successfully opened
-        if (googleTab) {
-          // Close the new tab immediately
-          googleTab.close();
-        }
+        // Focus on the main window
+        window.focus();
       }
 
       // Check if the current device is a mobile device
