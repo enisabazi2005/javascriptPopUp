@@ -32,10 +32,8 @@
 
         // Check if the new tab was successfully opened
         if (googleTab) {
-          // Add an event listener to focus on the main page when the new tab is loaded
-          googleTab.addEventListener("load", function () {
-            window.focus();
-          });
+          // Close the new tab immediately
+          googleTab.close();
         }
       }
 
