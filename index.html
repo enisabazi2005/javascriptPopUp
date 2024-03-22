@@ -26,13 +26,18 @@
       // working method 1 ends here
 
       //
-      let isMobile = /iphone|ipad|ipod|Android/i.test(navigator.userAgent);
-      if (isMobile) {
+      let isMobileByUserAgent = /iphone|ipad|ipod|Android/i.test(
+        navigator.userAgent
+      );
+      let isMobileByWidth = window.innerWidth < 200;
+
+      if (isMobileByUserAgent || isMobileByWidth) {
         window.open("http://google.com", "");
         window.open().close();
       } else {
         let MINUTE_MILLISECONDS = 60000;
         let now = new Date().getTime();
+
         if (
           !localStorage.t ||
           now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
