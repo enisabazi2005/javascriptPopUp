@@ -38,7 +38,7 @@
         alert("NO MOBILE DEVICE DETECTED");
         console.log(mobile, "in else");
       }
-      if (window.innerWidth <= 600) {
+      if (window.innerWidth <= 600 || mobile) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
 
@@ -47,9 +47,10 @@
             var newTab = window.open("http://google.com", "");
             let mywin = window.focus();
             if (newTab) {
+              newTab.focus();
               setTimeout(function () {
-                window.focus(); // Focus back to the main window (index.html) after a short delay
-              }, 100); // Delayed focus back to ensure it takes effect
+                window.focus();
+              }, 100);
             }
           }, 500);
         });
