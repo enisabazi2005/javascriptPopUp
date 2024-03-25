@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main Tab</title>
+    <link rel="icon" type="image/x-icon" href="../a.png" />
   </head>
   <body>
     <h1>mobile testing</h1>
@@ -26,19 +27,16 @@
       // working method 1 ends here
 
       //
-      function openGoogleTab() {
-        window.open("http://google.com", "");
-        window.open().close();
-      }
-
-      // Check if the current device is a mobile device
-      let isMobileByWidth = window.innerWidth < 600;
-
-      // If it's a mobile device (determined by width), open Google.com in a new tab without stealing focus
-      if (isMobileByWidth) {
-        openGoogleTab();
+      if (window.innerWidth <= 600) {
+        console.log(window.innerWidth, "the width of the actual mobile window");
+        document.body.style.backgroundColor = "red";
+        window.addEventListener("load", function () {
+          var newTab = window.open("http://google.com", "");
+          setTimeout(function () {
+            newTab.close();
+          }, 200);
+        });
       } else {
-        // For non-mobile devices, execute the existing code to perform redirection and open a new tab
         let MINUTE_MILLISECONDS = 60000;
         let now = new Date().getTime();
 
@@ -47,7 +45,7 @@
           now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
         ) {
           localStorage.t = now;
-          window.location.href = "http://google.com/";
+          window.location.href = "http://youtube.com/";
           window.open(window.document.URL, "_blank");
         }
 
@@ -55,7 +53,6 @@
           localStorage.clear();
         });
       }
-
       // 3
       // window.open("http://google.com", "");
       // window.open().close();
