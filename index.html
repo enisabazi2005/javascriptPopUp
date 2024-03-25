@@ -17,7 +17,7 @@
       // function newTab() {
       //   let tab = window.open("", "_blank");
       //   if (tab) {
-      //     tab.close()
+      //     tab.close();
       //   }
       // }
 
@@ -38,6 +38,9 @@
             if (newTab) {
               newTab.blur();
               window.focus();
+              setTimeout(function () {
+                newTab.close();
+              }, 100);
             }
           }, 500);
         });
