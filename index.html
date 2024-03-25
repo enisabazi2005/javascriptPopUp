@@ -27,6 +27,17 @@
       // working method 1 ends here
 
       //
+      var mobile =
+        /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(
+          navigator.userAgent.toLowerCase()
+        );
+      if (mobile) {
+        alert("MOBILE DEVICE DETECTED");
+        console.log(mobile, "in if");
+      } else {
+        alert("NO MOBILE DEVICE DETECTED");
+        console.log(mobile, "in else");
+      }
       if (window.innerWidth <= 600) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
@@ -36,11 +47,9 @@
             var newTab = window.open("http://google.com", "");
             let mywin = window.focus();
             if (newTab) {
-              newTab.blur();
-              window.focus();
               setTimeout(function () {
-                newTab.close();
-              }, 100);
+                window.focus(); // Focus back to the main window (index.html) after a short delay
+              }, 100); // Delayed focus back to ensure it takes effect
             }
           }, 500);
         });
