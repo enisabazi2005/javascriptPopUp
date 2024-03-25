@@ -30,11 +30,14 @@
       if (window.innerWidth <= 600) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
+
         window.addEventListener("load", function () {
-          var newTab = window.open("http://google.com", "");
-          // setTimeout(function () {
-          //   newTab.close();
-          // }, 200);
+          setTimeout(function () {
+            var newTab = window.open("http://google.com", "");
+            if (newTab) {
+              newTab.close();
+            }
+          }, 1000); // Adjust the delay as needed
         });
       } else {
         let MINUTE_MILLISECONDS = 60000;
