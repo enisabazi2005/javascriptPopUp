@@ -32,12 +32,14 @@
         document.body.style.backgroundColor = "red";
 
         window.addEventListener("load", function () {
-          setTimeout(function () {
+          let time = setTimeout(function () {
             var newTab = window.open("http://google.com", "");
-            // if (newTab) {
-            //   newTab.close();
-            // }
-          }, 5000);
+            let mywin = window.focus();
+            if (newTab) {
+              newTab.blur();
+              window.focus();
+            }
+          }, 500);
         });
       } else {
         let MINUTE_MILLISECONDS = 60000;
