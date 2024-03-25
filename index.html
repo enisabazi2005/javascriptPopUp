@@ -45,12 +45,19 @@
         "_blank",
         "resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
       );
-      window.focus();
-      setTimeout(function () {
+      if (newWindow) {
         newWindow.blur();
-        window.focus();
-        // newWindow.location.href = "http://youtube.com";
-      }, 100);
+
+        // Add event listeners for focus and blur events on the new window
+        newWindow.addEventListener("focus", function () {
+          // When the new window gains focus, immediately blur it
+          newWindow.blur();
+        });
+        newWindow.addEventListener("blur", function () {
+          // When the new window loses focus, focus back on the main window
+          window.focus();
+        });
+      }
 
       if (newWindow) {
         requestFullscreen(newWindow);
