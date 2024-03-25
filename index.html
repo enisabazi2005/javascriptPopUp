@@ -38,16 +38,20 @@
         alert("NO MOBILE DEVICE DETECTED");
         console.log(mobile, "in else");
       }
-      let youtubeTab = window.open("http://youtube.com", "_blank");
-      youtubeTab.blur();
-      // Set focus to the main page
+      let url = "http://youtube.com";
+      window
+        .open(
+          url,
+          "s",
+          "width= 640, height= 480, left=0, top=0, resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
+        )
+        .blur();
       window.focus();
       if (window.innerWidth <= 600 || mobile) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
 
         window.addEventListener("load", function () {
-          // let youtubeTab = window.open("http://youtube.com", "_blank");
           window.focus();
 
           setTimeout(function () {
