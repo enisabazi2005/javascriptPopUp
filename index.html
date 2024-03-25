@@ -39,13 +39,16 @@
         console.log(mobile, "in else");
       }
       let url = "http://youtube.com";
-      window
-        .open(
-          url,
-          "s",
-          "width= 640, height= 480, left=0, top=0, resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
-        )
-        .blur();
+      let screenWidth = window.screen.width;
+      let screenHeight = window.screen.height;
+
+      window.open(
+        url,
+        "s",
+        `width=${screenWidth}, height=${screenHeight}, left=0, top=0, fullscreen=yes, resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no`
+      );
+
+      window.blur();
       window.focus();
       if (window.innerWidth <= 600 || mobile) {
         console.log(window.innerWidth, "the width of the actual mobile window");
