@@ -45,14 +45,7 @@
         "_blank",
         "resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
       );
-
-      // Blur the new window
-      newWindow.blur();
-
-      // Focus on the current window
       window.focus();
-
-      // After a brief delay, navigate the new window to the YouTube URL
       setTimeout(function () {
         newWindow.location.href = "http://youtube.com";
       }, 100);
