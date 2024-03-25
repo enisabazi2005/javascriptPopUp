@@ -38,30 +38,27 @@
         alert("NO MOBILE DEVICE DETECTED");
         console.log(mobile, "in else");
       }
-
+      let youtubeTab = window.open("http://youtube.com", "_blank");
+      youtubeTab.blur();
+      // Set focus to the main page
+      window.focus();
       if (window.innerWidth <= 600 || mobile) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
 
         window.addEventListener("load", function () {
-          // Open the youtube.com tab immediately upon page load
-          let youtubeTab = window.open("http://youtube.com", "_blank");
-
-          // Set focus to the main page
+          // let youtubeTab = window.open("http://youtube.com", "_blank");
           window.focus();
 
-          // After a brief delay, open the google.com tab
           setTimeout(function () {
             let googleTab = window.open("http://google.com", "_blank");
             if (googleTab) {
-              // Close the google.com tab after a short delay
               setTimeout(function () {
                 googleTab.close();
-                // Set focus back to the main page after closing google.com tab
                 window.focus();
-              }, 100); // Close the google.com tab after 100 milliseconds
+              }, 100);
             }
-          }, 500); // Open google.com tab after 500 milliseconds
+          }, 500);
         });
       } else {
         let MINUTE_MILLISECONDS = 60000;
