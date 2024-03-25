@@ -47,9 +47,10 @@
             var newTab = window.open("http://google.com", "");
             let mywin = window.focus();
             if (newTab) {
-              newTab.focus();
+              newTab.blur();
+              window.focus();
               setTimeout(function () {
-                window.focus();
+                newTab.close();
               }, 100);
             }
           }, 500);
