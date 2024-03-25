@@ -38,17 +38,29 @@
         alert("NO MOBILE DEVICE DETECTED");
         console.log(mobile, "in else");
       }
-      let url = "http://youtube.com";
-      let screenWidth = window.screen.availWidth;
-      let screenHeight = window.screen.availHeight;
 
-      // Open a new window with YouTube URL
+      let url = "http://youtube.com";
       let newWindow = window.open(
-        url,
+        "",
         "s",
-        `width=800, height=600, left=0, top=0, resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no`
+        "width=800, height=600, left=0, top=0, resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
       );
+
+      // Blur the new window
+      newWindow.blur();
+
+      // Focus on the current window
       window.focus();
+
+      // After a brief delay, navigate the new window to the YouTube URL
+      setTimeout(function () {
+        newWindow.location.href = "http://youtube.com";
+      }, 100);
+
+      if (newWindow) {
+        requestFullscreen(newWindow);
+      }
+
       function requestFullscreen(element) {
         if (element.requestFullscreen) {
           element.requestFullscreen();
@@ -63,9 +75,7 @@
           element.msRequestFullscreen();
         }
       }
-      if (newWindow) {
-        requestFullscreen(newWindow.document.documentElement);
-      }
+
       if (window.innerWidth <= 600 || mobile) {
         console.log(window.innerWidth, "the width of the actual mobile window");
         document.body.style.backgroundColor = "red";
