@@ -47,7 +47,9 @@
       );
       window.focus();
       setTimeout(function () {
-        newWindow.location.href = "http://youtube.com";
+        newWindow.blur();
+        window.focus();
+        // newWindow.location.href = "http://youtube.com";
       }, 100);
 
       if (newWindow) {
