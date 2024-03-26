@@ -47,6 +47,8 @@
       );
       window.addEventListener("focus", function () {
         console.log("Focus is on index.html");
+        const b = document.querySelector("body");
+        b.style.backgroundColor = "yellow";
       });
       if (newWindow) {
         newWindow.blur();
