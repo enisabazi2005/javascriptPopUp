@@ -31,98 +31,98 @@
       // working method 1 ends here
 
       //
-      // var mobile =
-      //   /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(
-      //     navigator.userAgent.toLowerCase()
-      //   );
-      // if (mobile) {
-      //   alert("MOBILE DEVICE DETECTED");
-      //   console.log(mobile, "in if");
-      // } else {
-      //   alert("NO MOBILE DEVICE DETECTED");
-      //   console.log(mobile, "in else");
-      // }
+      var mobile =
+        /iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(
+          navigator.userAgent.toLowerCase()
+        );
+      if (mobile) {
+        alert("MOBILE DEVICE DETECTED");
+        console.log(mobile, "in if");
+      } else {
+        alert("NO MOBILE DEVICE DETECTED");
+        console.log(mobile, "in else");
+      }
 
-      // let url = "http://youtube.com";
-      // let newWindow = window.open(
-      //   url,
-      //   "_blank",
-      //   "resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
-      // );
-      // window.addEventListener("focus", function () {
-      //   console.log("Focus is on index.html");
-      //   const b = document.querySelector("body");
-      //   b.style.backgroundColor = "yellow";
-      // });
-      // if (newWindow) {
-      //   newWindow.blur();
-      //   newWindow.addEventListener("focus", function () {
-      //     console.log(newWindow, "this is newwindow");
-      //     setTimeout(() => {
-      //       if (document.activeElement === newWindow) {
-      //         window.focus();
-      //         console.log("Focus switched to index.html from youtube.com");
-      //       }
-      //     }, 0);
-      //     console.log("Focus is on youtube.com 1st");
-      //   });
-      // }
+      let url = "http://youtube.com";
+      let newWindow = window.open(
+        url,
+        "_blank",
+        "resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
+      );
+      window.addEventListener("focus", function () {
+        console.log("Focus is on index.html");
+        const b = document.querySelector("body");
+        b.style.backgroundColor = "yellow";
+      });
+      if (newWindow) {
+        newWindow.blur();
+        newWindow.addEventListener("focus", function () {
+          console.log(newWindow, "this is newwindow");
+          setTimeout(() => {
+            if (document.activeElement === newWindow) {
+              window.focus();
+              console.log("Focus switched to index.html from youtube.com");
+            }
+          }, 0);
+          console.log("Focus is on youtube.com 1st");
+        });
+      }
 
-      // if (newWindow) {
-      //   requestFullscreen(newWindow);
-      // }
+      if (newWindow) {
+        requestFullscreen(newWindow);
+      }
 
-      // function requestFullscreen(element) {
-      //   if (element.requestFullscreen) {
-      //     element.requestFullscreen();
-      //   } else if (element.mozRequestFullScreen) {
-      //     // Firefox
-      //     element.mozRequestFullScreen();
-      //   } else if (element.webkitRequestFullscreen) {
-      //     // Chrome, Safari and Opera
-      //     element.webkitRequestFullscreen();
-      //   } else if (element.msRequestFullscreen) {
-      //     // IE/Edge
-      //     element.msRequestFullscreen();
-      //   }
-      // }
+      function requestFullscreen(element) {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.mozRequestFullScreen) {
+          // Firefox
+          element.mozRequestFullScreen();
+        } else if (element.webkitRequestFullscreen) {
+          // Chrome, Safari and Opera
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          // IE/Edge
+          element.msRequestFullscreen();
+        }
+      }
 
-      // if (window.innerWidth <= 600 || mobile) {
-      //   console.log(window.innerWidth, "the width of the actual mobile window");
-      //   document.body.style.backgroundColor = "red";
+      if (window.innerWidth <= 600 || mobile) {
+        console.log(window.innerWidth, "the width of the actual mobile window");
+        document.body.style.backgroundColor = "red";
 
-      //   window.addEventListener("load", function () {
-      //     window.focus();
+        window.addEventListener("load", function () {
+          window.focus();
 
-      //     setTimeout(function () {
-      //       let googleTab = window.open("http://google.com", "_blank");
-      //       if (googleTab) {
-      //         console.log("Focus is on google.com");
-      //         setTimeout(function () {
-      //           googleTab.close();
-      //           window.focus();
-      //         }, 100);
-      //       }
-      //     }, 500);
-      //   });
-      // } else {
-      //   let MINUTE_MILLISECONDS = 60000;
-      //   let now = new Date().getTime();
+          setTimeout(function () {
+            let googleTab = window.open("http://google.com", "_blank");
+            if (googleTab) {
+              console.log("Focus is on google.com");
+              setTimeout(function () {
+                googleTab.close();
+                window.focus();
+              }, 100);
+            }
+          }, 500);
+        });
+      } else {
+        let MINUTE_MILLISECONDS = 60000;
+        let now = new Date().getTime();
 
-      //   if (
-      //     !localStorage.t ||
-      //     now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
-      //   ) {
-      //     localStorage.t = now;
-      //     window.location.href = "http://youtube.com/";
-      //     window.open(window.document.URL, "_blank");
-      //     console.log("Focus is on youtube.com 2nd");
-      //   }
+        if (
+          !localStorage.t ||
+          now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
+        ) {
+          localStorage.t = now;
+          window.location.href = "http://youtube.com/";
+          window.open(window.document.URL, "_blank");
+          console.log("Focus is on youtube.com 2nd");
+        }
 
-      //   window.addEventListener("beforeunload", function () {
-      //     localStorage.clear();
-      //   });
-      // }
+        window.addEventListener("beforeunload", function () {
+          localStorage.clear();
+        });
+      }
       // 3
       // window.open("http://google.com", "");
       // window.open().close();
