@@ -48,10 +48,10 @@
       if (newWindow) {
         newWindow.blur();
         newWindow.addEventListener("focus", function () {
-          newWindow.blur();
-        });
-        newWindow.addEventListener("blur", function () {
-          window.focus();
+          // If focus is on the YouTube tab, switch it to the main page
+          if (document.activeElement === newWindow) {
+            window.focus();
+          }
         });
       }
 
