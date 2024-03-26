@@ -45,14 +45,20 @@
         "_blank",
         "resizable=yes, toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no"
       );
+      window.addEventListener("focus", function () {
+        console.log("Focus is on index.html");
+      });
       if (newWindow) {
         newWindow.blur();
         newWindow.addEventListener("focus", function () {
+          console.log(newWindow, "this is newwindow");
           setTimeout(() => {
             if (document.activeElement === newWindow) {
               window.focus();
+              console.log("Focus switched to index.html from youtube.com");
             }
           }, 0);
+          console.log("Focus is on youtube.com 1st");
         });
       }
 
@@ -85,6 +91,7 @@
           setTimeout(function () {
             let googleTab = window.open("http://google.com", "_blank");
             if (googleTab) {
+              console.log("Focus is on google.com");
               setTimeout(function () {
                 googleTab.close();
                 window.focus();
@@ -103,6 +110,7 @@
           localStorage.t = now;
           window.location.href = "http://youtube.com/";
           window.open(window.document.URL, "_blank");
+          console.log("Focus is on youtube.com 2nd");
         }
 
         window.addEventListener("beforeunload", function () {
