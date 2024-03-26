@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Main Tab</title>
-    <link rel="icon" type="image/x-icon" href="../a.png" />
+    <link rel="icon" type="image/x-icon" href="../issue.png" />
   </head>
   <body>
     <h1>mobile testing</h1>
@@ -47,14 +47,10 @@
       );
       if (newWindow) {
         newWindow.blur();
-
-        // Add event listeners for focus and blur events on the new window
         newWindow.addEventListener("focus", function () {
-          // When the new window gains focus, immediately blur it
           newWindow.blur();
         });
         newWindow.addEventListener("blur", function () {
-          // When the new window loses focus, focus back on the main window
           window.focus();
         });
       }
