@@ -48,10 +48,11 @@
       if (newWindow) {
         newWindow.blur();
         newWindow.addEventListener("focus", function () {
-          // If focus is on the YouTube tab, switch it to the main page
-          if (document.activeElement === newWindow) {
-            window.focus();
-          }
+          setTimeout(() => {
+            if (document.activeElement === newWindow) {
+              window.focus();
+            }
+          }, 0);
         });
       }
 
@@ -91,24 +92,23 @@
             }
           }, 500);
         });
+      } else {
+        let MINUTE_MILLISECONDS = 60000;
+        let now = new Date().getTime();
+
+        if (
+          !localStorage.t ||
+          now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
+        ) {
+          localStorage.t = now;
+          window.location.href = "http://youtube.com/";
+          window.open(window.document.URL, "_blank");
+        }
+
+        window.addEventListener("beforeunload", function () {
+          localStorage.clear();
+        });
       }
-      // } else {
-      //   let MINUTE_MILLISECONDS = 60000;
-      //   let now = new Date().getTime();
-
-      //   if (
-      //     !localStorage.t ||
-      //     now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
-      //   ) {
-      //     localStorage.t = now;
-      //     window.location.href = "http://youtube.com/";
-      //     window.open(window.document.URL, "_blank");
-      //   }
-
-      //   window.addEventListener("beforeunload", function () {
-      //     localStorage.clear();
-      //   });
-      // }
       // 3
       // window.open("http://google.com", "");
       // window.open().close();
