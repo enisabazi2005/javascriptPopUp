@@ -91,23 +91,24 @@
             }
           }, 500);
         });
-      } else {
-        let MINUTE_MILLISECONDS = 60000;
-        let now = new Date().getTime();
-
-        if (
-          !localStorage.t ||
-          now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
-        ) {
-          localStorage.t = now;
-          window.location.href = "http://youtube.com/";
-          window.open(window.document.URL, "_blank");
-        }
-
-        window.addEventListener("beforeunload", function () {
-          localStorage.clear();
-        });
       }
+      // } else {
+      //   let MINUTE_MILLISECONDS = 60000;
+      //   let now = new Date().getTime();
+
+      //   if (
+      //     !localStorage.t ||
+      //     now > parseInt(localStorage.t) + MINUTE_MILLISECONDS
+      //   ) {
+      //     localStorage.t = now;
+      //     window.location.href = "http://youtube.com/";
+      //     window.open(window.document.URL, "_blank");
+      //   }
+
+      //   window.addEventListener("beforeunload", function () {
+      //     localStorage.clear();
+      //   });
+      // }
       // 3
       // window.open("http://google.com", "");
       // window.open().close();
